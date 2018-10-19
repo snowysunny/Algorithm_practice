@@ -40,7 +40,7 @@ public class CoinChange {
      * @param coins
      * @param amount
      * */
-    public int coinChange_T_B(int[] coins, int amount) {
+    public int coinChange_TopDown(int[] coins, int amount) {
         if (amount <= 0)
             return 0;
 
@@ -75,22 +75,7 @@ public class CoinChange {
      * @param coins
      * @param amount
      * */
-    public int coinChange_B_T(int[] coins, int amount) {
-        int []dp = new int[amount + 1];
-        Arrays.fill(dp, amount + 1);   // 将dp中所有的值赋值为amount + 1
-        dp[0] = 0;
-        for (int i = 1; i <= amount; i ++) {
-            for (int coin: coins) {
-                if (i - coin >= 0 && dp[i - coin] >= 0)
-                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
-            }
-            if (dp[i] == Integer.MAX_VALUE)
-                dp[i] = -1;
-        }
-        return dp[amount];
-    }
-
-    public int coinChange_TopDown(int[] coins, int amount) {
+    public int coinChange_BottomUp(int[] coins, int amount) {
         if (amount <= 0)
             return 0;
         int []dp = new int[amount + 1];
@@ -105,8 +90,7 @@ public class CoinChange {
         return (dp[amount] > amount) ? -1 : dp[amount];
     }
 
-
-
+    // 测试一下
     public static void main(String[] args) {
         CoinChange cc = new CoinChange();
         int []coins = {1, 2, 5, 3, 4};
