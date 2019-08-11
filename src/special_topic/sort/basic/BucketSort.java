@@ -30,7 +30,7 @@ public class BucketSort {
             return bucketArr;
 
         // 定义桶的数量
-        int bucketCount = 10;
+        int bucketCount = 100;
         List<List> buckets = new ArrayList<>();     // 定义桶
         for(int i = 0; i < bucketCount; i ++) {
             buckets.add(new ArrayList());
@@ -40,6 +40,8 @@ public class BucketSort {
         for(int num : bucketArr) {
             buckets.get(num / bucketCount).add(num);
         }
+
+        System.out.println(buckets);
 
         // 每个桶中使用插入排序
         for(int i = 0; i < bucketCount; i++){
@@ -56,7 +58,7 @@ public class BucketSort {
 
     public static void main(String[] args) {
         //        List<Integer> arr = new ArrayList<>();
-        Integer[] source = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};//{1, 3, 5, 7, 8, 2, 4, 6, 9, 7};
+        Integer[] source = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48, 8000, 1250, 1000, 9999};//{1, 3, 5, 7, 8, 2, 4, 6, 9, 7};
         List<Integer> arr = Arrays.asList(source);               // 将数据替换成List的方式
         // 桶排序
         System.out.println("桶排序前： " + arr);

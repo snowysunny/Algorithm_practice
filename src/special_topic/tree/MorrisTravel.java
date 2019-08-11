@@ -59,6 +59,7 @@ public class MorrisTravel {
         if(root == null)
             return res;
         TreeNode cur = root, prev = null;
+
         while(cur != null) {
             if(cur.left == null) {
                 res.add(cur.val);
